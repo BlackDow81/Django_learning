@@ -9,6 +9,8 @@ def mainpage(request):
 def item(request, item_id: int):
     try:
         item = Item.objects.get(pk=item_id)
+        # if item.count == 0:
+        #     item.count = "Кончилось все!"
     except ObjectDoesNotExist:
         raise Http404(f"Item with id={item_id} not found")
     context = {
